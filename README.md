@@ -34,7 +34,7 @@ def example():
   
   path = "example.cs"
   with open(path, "rb") as f:
-    cs = csfile.open(f, preprocess)
+    cs = csfile.load(f, preprocess)
 ```
 
 The loaded `CSFile` object can be used to access file metadata via the `header` attribute,
