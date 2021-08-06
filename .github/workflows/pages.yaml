@@ -14,7 +14,7 @@ jobs:
         run: pip3 install -r requirements.txt
 
       - name: Build documentation
-        run: cd sphinx && pip3 install -r requirements.txt && make html
+        run: cd docs && pip3 install -r requirements.txt && make html
 
       - name: Publish documentation
         uses: peaceiris/actions-gh-pages@v3
