@@ -4,7 +4,7 @@ import numpy as np
 import pprint
 import struct
 
-from radarqc.processing import SignalProcessor
+from radarqc.processing import Identity, SignalProcessor
 from radarqc.serialization import Deserializer, ByteOrder
 
 from typing import BinaryIO, List, Tuple
@@ -285,11 +285,6 @@ class CSFile:
         Manuals_Documentation_Release_8/File_Formats/File_Cross_Spectra_V6.pdf
     """
 
-    @staticmethod
-    def load_from(f: BinaryIO, preprocess: SignalProcessor = None):
-        header, spectrum = _CSFileLoader().load(f, preprocess)
-        return CSFile(header=header, spectrum=spectrum)
-
     def __init__(self, header: CSFileHeader, spectrum: Spectrum) -> None:
         self._header = header
         self._spectrum = spectrum
@@ -326,3 +321,11 @@ class CSFile:
     @property
     def cross23(self) -> np.ndarray:
         return self._spectrum.cross23
+
+
+def load(f: BinaryIO, preprocess: SignalProcessor = None) -> CSFile:
+    if preprocess is None:
+        preprocess = Identity()
+
+    header, spectrum = _CSFileLoader().load(f, preprocess)
+    return CSFile(header=header, spectrum=spectrum)

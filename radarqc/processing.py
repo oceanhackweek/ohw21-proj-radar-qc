@@ -62,3 +62,10 @@ class CompositeProcessor(SignalProcessor):
         for process in self._processors:
             signal = process(signal)
         return signal
+
+
+class Identity(SignalProcessor):
+    """Does nothing, returns the input signal without copying"""
+
+    def _process(self, signal: np.ndarray) -> np.ndarray:
+        return signal

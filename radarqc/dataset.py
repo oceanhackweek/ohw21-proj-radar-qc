@@ -1,5 +1,6 @@
 import numpy as np
 
+from radarqc import csfile
 from radarqc.csfile import CSFile, CSFileHeader
 from radarqc.processing import SignalProcessor
 from typing import Iterable
@@ -36,4 +37,4 @@ class DataSet:
 
     def _load_spectrum(self, path: str, preprocess: SignalProcessor) -> CSFile:
         with open(path, "rb") as f:
-            return CSFile.load_from(f, preprocess)
+            return csfile.load(f, preprocess)
