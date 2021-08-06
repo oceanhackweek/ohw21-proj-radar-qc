@@ -27,54 +27,54 @@ class Deserializer:
     def reset(self) -> None:
         self._offset = 0
 
-    def unpack_char(self, n=1) -> bytes:
+    def unpack_char(self, n: int = 1) -> bytes:
         return self._unpack("c", size=1, n=n)
 
-    def unpack_string(self, n=1) -> str:
+    def unpack_string(self, n: int = 1) -> str:
         raw = self.unpack_char(n=n)
         if n == 1:
             return raw.decode()
         else:
             return "".join(r.decode() for r in raw)
 
-    def unpack_bytes(self, n=1) -> bytes:
+    def unpack_bytes(self, n: int = 1) -> bytes:
         raw = self.unpack_char(n=n)
         if n == 1:
             return raw
         else:
             return b"".join(raw)
 
-    def unpack_int8(self, n=1) -> int:
+    def unpack_int8(self, n: int = 1) -> int:
         return self._unpack(n * "b", size=1, n=n)
 
-    def unpack_uint8(self, n=1) -> int:
+    def unpack_uint8(self, n: int = 1) -> int:
         return self._unpack(n * "B", size=1, n=n)
 
-    def unpack_bool(self, n=1) -> bool:
+    def unpack_bool(self, n: int = 1) -> bool:
         return self._unpack(n * "?", size=1, n=n)
 
-    def unpack_int16(self, n=1) -> int:
+    def unpack_int16(self, n: int = 1) -> int:
         return self._unpack("h", size=2, n=n)
 
-    def unpack_uint16(self, n=1) -> int:
+    def unpack_uint16(self, n: int = 1) -> int:
         return self._unpack("H", size=2, n=n)
 
-    def unpack_int32(self, n=1) -> int:
+    def unpack_int32(self, n: int = 1) -> int:
         return self._unpack("i", size=4, n=n)
 
-    def unpack_uint32(self, n=1) -> int:
+    def unpack_uint32(self, n: int = 1) -> int:
         return self._unpack("I", size=4, n=n)
 
-    def unpack_int64(self, n=1) -> int:
+    def unpack_int64(self, n: int = 1) -> int:
         return self._unpack("q", size=8, n=n)
 
-    def unpack_uint64(self, n=1) -> int:
+    def unpack_uint64(self, n: int = 1) -> int:
         return self._unpack("Q", size=8, n=n)
 
-    def unpack_float(self, n=1) -> float:
+    def unpack_float(self, n: int = 1) -> float:
         return self._unpack("f", size=4, n=n)
 
-    def unpack_double(self, n=1) -> float:
+    def unpack_double(self, n: int = 1) -> float:
         return self._unpack("d", size=8, n=n)
 
     def _unpack(self, fmt: str, size: int, n: int) -> Any:
@@ -86,5 +86,5 @@ class Deserializer:
         else:
             return data
 
-    def _build_format(self, fmt) -> str:
+    def _build_format(self, fmt: str) -> str:
         return "{}{}".format(self._byteorder, fmt)
