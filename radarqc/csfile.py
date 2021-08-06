@@ -4,13 +4,15 @@ import numpy as np
 import pprint
 import struct
 
-from radarqc.processing import Abs, GainCalculator, CompositeProcessor
+from radarqc.processing import SignalProcessor
 from radarqc.serialization import Deserializer, ByteOrder
 
 from typing import BinaryIO, List, Tuple
 
 
 class CSFileHeader:
+    """Stores all header information from Cross-Spectrum files"""
+
     def __init__(self):
         self.version = None
         self.timestamp = None
@@ -40,7 +42,7 @@ class CSFileHeader:
 
 
 class Spectrum:
-    _GAIN_OFFSET = -34.2
+    """Stores antenna spectra from Cross-Spectrum files."""
 
     def __init__(
         self,
@@ -51,26 +53,28 @@ class Spectrum:
         cross13: List[float],
         cross23: List[float],
         quality: List[float],
+        preprocess: SignalProcessor,
     ) -> None:
-        self._preprocess = CompositeProcessor(
-            Abs(), GainCalculator(offset=self._GAIN_OFFSET)
-        )
 
-        self.antenna1 = self._create_real_signal(antenna1)
-        self.antenna2 = self._create_real_signal(antenna2)
-        self.antenna3 = self._create_real_signal(antenna3)
-        self.cross12 = self._create_complex_signal(cross12)
-        self.cross13 = self._create_complex_signal(cross13)
-        self.cross23 = self._create_complex_signal(cross23)
-        self.quality = self._create_real_signal(quality)
+        self.antenna1 = self._create_real_signal(antenna1, preprocess)
+        self.antenna2 = self._create_real_signal(antenna2, preprocess)
+        self.antenna3 = self._create_real_signal(antenna3, preprocess)
+        self.cross12 = self._create_complex_signal(cross12, preprocess)
+        self.cross13 = self._create_complex_signal(cross13, preprocess)
+        self.cross23 = self._create_complex_signal(cross23, preprocess)
+        self.quality = self._create_real_signal(quality, preprocess)
 
-    def _create_real_signal(self, raw: List[float]) -> None:
-        return self._preprocess(self._to_numpy(raw))
+    def _create_real_signal(
+        self, raw: List[float], preprocess: SignalProcessor
+    ) -> None:
+        return preprocess(self._to_numpy(raw))
 
-    def _create_complex_signal(self, raw: List[float]) -> None:
+    def _create_complex_signal(
+        self, raw: List[float], preprocess: SignalProcessor
+    ) -> None:
         signal = self._to_numpy(raw)
-        real = self._preprocess(signal[:, 0::2])
-        imag = self._preprocess(signal[:, 1::2])
+        real = preprocess(signal[:, 0::2])
+        imag = preprocess(signal[:, 1::2])
         return real + 1j * imag
 
     def _to_numpy(self, raw: List[float]) -> np.ndarray:
@@ -78,8 +82,12 @@ class Spectrum:
 
 
 class _CSFileLoader:
-    def load(self, f: BinaryIO) -> Tuple[CSFileHeader, Spectrum]:
-        return self._unpack_cs_buffer(f.read())
+    """Responsible for parsing binary data encoded in Cross-Spectrum files"""
+
+    def load(
+        self, f: BinaryIO, preprocess: SignalProcessor
+    ) -> Tuple[CSFileHeader, Spectrum]:
+        return self._unpack_cs_buffer(f.read(), preprocess)
 
     def _parse_timestamp(self, seconds: int) -> datetime.datetime:
         start = datetime.datetime(year=1904, month=1, day=1)
@@ -189,16 +197,20 @@ class _CSFileLoader:
             "detection_smoothing": detection_smoothing,
         }
 
-    def _parse_key_supm(self, buffer: bytes, header: CSFileHeader) -> dict:
+    def _parse_key_supm(self, buff: bytes, header: CSFileHeader) -> dict:
         block_size = header.num_spectra_channels * header.num_doppler_cells * 4
 
-    def _unpack_cs_buffer(self, buff: bytes) -> Tuple[CSFileHeader, Spectrum]:
+    def _unpack_cs_buffer(
+        self, buff: bytes, preprocess: SignalProcessor
+    ) -> Tuple[CSFileHeader, Spectrum]:
         unpackers = {6: self._unpack_buffer_v6}
         (version,) = struct.unpack_from(">h", buff)
         unpack = unpackers[version]
-        return unpack(buff)
+        return unpack(buff, preprocess)
 
-    def _unpack_buffer_v6(self, buff: bytes) -> Tuple[CSFileHeader, Spectrum]:
+    def _unpack_buffer_v6(
+        self, buff: bytes, preprocess: SignalProcessor
+    ) -> Tuple[CSFileHeader, Spectrum]:
         unpacker = Deserializer(buff, byteorder=ByteOrder.BIG_ENDIAN)
         header = CSFileHeader()
 
@@ -261,14 +273,21 @@ class _CSFileLoader:
             c23.append(unpacker.unpack_float(row_size_bytes * 2))
             if header.cskind >= 2:
                 q.append(unpacker.unpack_float(row_size_bytes))
-        spectrum = Spectrum(a1, a2, a3, c12, c13, c23, q)
+        spectrum = Spectrum(a1, a2, a3, c12, c13, c23, q, preprocess)
         return header, spectrum
 
 
 class CSFile:
+    """Representation of Cross-Spectrum file for storing CODAR HF radar.  For
+    information about specific fields consult:
+
+        http://support.codar.com/Technicians_Information_Page_for_SeaSondes/
+        Manuals_Documentation_Release_8/File_Formats/File_Cross_Spectra_V6.pdf
+    """
+
     @staticmethod
-    def load_from(f: BinaryIO):
-        header, spectrum = _CSFileLoader().load(f)
+    def load_from(f: BinaryIO, preprocess: SignalProcessor = None):
+        header, spectrum = _CSFileLoader().load(f, preprocess)
         return CSFile(header=header, spectrum=spectrum)
 
     def __init__(self, header: CSFileHeader, spectrum: Spectrum) -> None:
@@ -277,22 +296,27 @@ class CSFile:
 
     @property
     def header(self) -> CSFileHeader:
+        """File header, contains all file metadata"""
         return self._header
 
     @property
     def antenna1(self) -> np.ndarray:
+        """Spectrum from first loop antenna"""
         return self._spectrum.antenna1
 
     @property
     def antenna2(self) -> np.ndarray:
+        """Spectrum from second loop antenna"""
         return self._spectrum.antenna2
 
     @property
     def antenna3(self) -> np.ndarray:
+        """Spectrum from monopole antenna"""
         return self._spectrum.antenna3
 
     @property
     def cross12(self) -> np.ndarray:
+        """Cross-spectrum from antenna 1 & 2.  This is defined as"""
         return self._spectrum.cross12
 
     @property
