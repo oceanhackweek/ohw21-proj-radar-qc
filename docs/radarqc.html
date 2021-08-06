@@ -1,0 +1,661 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>radarqc package &mdash; radarqc 0.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="radarqc" href="modules.html" />
+    <link rel="prev" title="Welcome to radarqc’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> radarqc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">radarqc package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-radarqc.csfile">radarqc.csfile module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-radarqc.dataset">radarqc.dataset module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-radarqc.filtering">radarqc.filtering module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-radarqc.processing">radarqc.processing module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-radarqc.serialization">radarqc.serialization module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-radarqc">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">radarqc</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">radarqc package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-radarqc.csfile">radarqc.csfile module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-radarqc.dataset">radarqc.dataset module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-radarqc.filtering">radarqc.filtering module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-radarqc.processing">radarqc.processing module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-radarqc.serialization">radarqc.serialization module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-radarqc">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">radarqc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>radarqc package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/radarqc.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="radarqc-package">
+<h1>radarqc package<a class="headerlink" href="#radarqc-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-radarqc.csfile">
+<span id="radarqc-csfile-module"></span><h2>radarqc.csfile module<a class="headerlink" href="#module-radarqc.csfile" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="radarqc.csfile.CSFile">
+<em class="property">class </em><code class="sig-prename descclassname">radarqc.csfile.</code><code class="sig-name descname">CSFile</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">header</span></em>, <em class="sig-param"><span class="n">spectrum</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.csfile.CSFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Representation of Cross-Spectrum file for storing CODAR HF radar data.</p>
+<dl class="py method">
+<dt id="radarqc.csfile.CSFile.antenna1">
+<em class="property">property </em><code class="sig-name descname">antenna1</code><a class="headerlink" href="#radarqc.csfile.CSFile.antenna1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spectrum from first loop antenna</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="radarqc.csfile.CSFile.antenna2">
+<em class="property">property </em><code class="sig-name descname">antenna2</code><a class="headerlink" href="#radarqc.csfile.CSFile.antenna2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spectrum from second loop antenna</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="radarqc.csfile.CSFile.antenna3">
+<em class="property">property </em><code class="sig-name descname">antenna3</code><a class="headerlink" href="#radarqc.csfile.CSFile.antenna3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spectrum from monopole antenna</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="radarqc.csfile.CSFile.cross12">
+<em class="property">property </em><code class="sig-name descname">cross12</code><a class="headerlink" href="#radarqc.csfile.CSFile.cross12" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cross-spectrum from antenna 1 &amp; 2.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="radarqc.csfile.CSFile.cross13">
+<em class="property">property </em><code class="sig-name descname">cross13</code><a class="headerlink" href="#radarqc.csfile.CSFile.cross13" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cross-spectrum from antenna 1 &amp; 3.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="radarqc.csfile.CSFile.cross23">
+<em class="property">property </em><code class="sig-name descname">cross23</code><a class="headerlink" href="#radarqc.csfile.CSFile.cross23" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cross-spectrum from antenna 2 &amp; 3.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="radarqc.csfile.CSFile.header">
+<em class="property">property </em><code class="sig-name descname">header</code><a class="headerlink" href="#radarqc.csfile.CSFile.header" title="Permalink to this definition">¶</a></dt>
+<dd><p>File header, contains all file metadata</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#radarqc.csfile.CSFileHeader" title="radarqc.csfile.CSFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">CSFileHeader</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="radarqc.csfile.CSFileHeader">
+<em class="property">class </em><code class="sig-prename descclassname">radarqc.csfile.</code><code class="sig-name descname">CSFileHeader</code><a class="headerlink" href="#radarqc.csfile.CSFileHeader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Stores all header information from Cross-Spectrum files</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="radarqc.csfile.Spectrum">
+<em class="property">class </em><code class="sig-prename descclassname">radarqc.csfile.</code><code class="sig-name descname">Spectrum</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">antenna1</span></em>, <em class="sig-param"><span class="n">antenna2</span></em>, <em class="sig-param"><span class="n">antenna3</span></em>, <em class="sig-param"><span class="n">cross12</span></em>, <em class="sig-param"><span class="n">cross13</span></em>, <em class="sig-param"><span class="n">cross23</span></em>, <em class="sig-param"><span class="n">quality</span></em>, <em class="sig-param"><span class="n">preprocess</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.csfile.Spectrum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Stores antenna spectra from Cross-Spectrum files.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="radarqc.csfile.load">
+<code class="sig-prename descclassname">radarqc.csfile.</code><code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="n">preprocess</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.csfile.load" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#radarqc.csfile.CSFile" title="radarqc.csfile.CSFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">CSFile</span></code></a></p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>f</strong> (<em>BinaryIO</em>) – </p></li>
+<li><p><strong>preprocess</strong> (<a class="reference internal" href="#radarqc.processing.SignalProcessor" title="radarqc.processing.SignalProcessor"><em>radarqc.processing.SignalProcessor</em></a>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-radarqc.dataset">
+<span id="radarqc-dataset-module"></span><h2>radarqc.dataset module<a class="headerlink" href="#module-radarqc.dataset" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="radarqc.dataset.DataSet">
+<em class="property">class </em><code class="sig-prename descclassname">radarqc.dataset.</code><code class="sig-name descname">DataSet</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">paths</span></em>, <em class="sig-param"><span class="n">preprocess</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.dataset.DataSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Supports aggregation of all Cross-Spectrum files in a given directory
+into a batch of images.</p>
+<p>Uses the monopole antenna channel (Antenna 3) for the spectrum</p>
+<dl class="py method">
+<dt id="radarqc.dataset.DataSet.headers">
+<em class="property">property </em><code class="sig-name descname">headers</code><a class="headerlink" href="#radarqc.dataset.DataSet.headers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an iterable containing the Cross-Spectrum file header
+for each input path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<a class="reference internal" href="#radarqc.csfile.CSFileHeader" title="radarqc.csfile.CSFileHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">CSFileHeader</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="radarqc.dataset.DataSet.spectra">
+<em class="property">property </em><code class="sig-name descname">spectra</code><a class="headerlink" href="#radarqc.dataset.DataSet.spectra" title="Permalink to this definition">¶</a></dt>
+<dd><p>Image size is (N, num_range, num_doppler), where N is the total
+number of Cross-Spectrum files found in the target directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-radarqc.filtering">
+<span id="radarqc-filtering-module"></span><h2>radarqc.filtering module<a class="headerlink" href="#module-radarqc.filtering" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="radarqc.filtering.NoiseFilter">
+<em class="property">class </em><code class="sig-prename descclassname">radarqc.filtering.</code><code class="sig-name descname">NoiseFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">threshold</span></em>, <em class="sig-param"><span class="n">window_std</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.filtering.NoiseFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#radarqc.filtering.SpectrumFilter" title="radarqc.filtering.SpectrumFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">radarqc.filtering.SpectrumFilter</span></code></a></p>
+<p>Computes average across range dimension, and uses a threshold
+to zero out noise regions</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="radarqc.filtering.PCAFilter">
+<em class="property">class </em><code class="sig-prename descclassname">radarqc.filtering.</code><code class="sig-name descname">PCAFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_components</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.filtering.PCAFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#radarqc.filtering.SpectrumFilter" title="radarqc.filtering.SpectrumFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">radarqc.filtering.SpectrumFilter</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="radarqc.filtering.PreFitPCAFilter">
+<em class="property">class </em><code class="sig-prename descclassname">radarqc.filtering.</code><code class="sig-name descname">PreFitPCAFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spectra</span></em>, <em class="sig-param"><span class="n">num_components</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.filtering.PreFitPCAFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#radarqc.filtering.SpectrumFilter" title="radarqc.filtering.SpectrumFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">radarqc.filtering.SpectrumFilter</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="radarqc.filtering.SpectrumFilter">
+<em class="property">class </em><code class="sig-prename descclassname">radarqc.filtering.</code><code class="sig-name descname">SpectrumFilter</code><a class="headerlink" href="#radarqc.filtering.SpectrumFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-radarqc.processing">
+<span id="radarqc-processing-module"></span><h2>radarqc.processing module<a class="headerlink" href="#module-radarqc.processing" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="radarqc.processing.Abs">
+<em class="property">class </em><code class="sig-prename descclassname">radarqc.processing.</code><code class="sig-name descname">Abs</code><a class="headerlink" href="#radarqc.processing.Abs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#radarqc.processing.SignalProcessor" title="radarqc.processing.SignalProcessor"><code class="xref py py-class docutils literal notranslate"><span class="pre">radarqc.processing.SignalProcessor</span></code></a></p>
+<p>Calculates absolute value of a signal.  This can be useful
+for dealing with negative values in the signal, which are added to
+indicate outliers in the raw voltage data</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="radarqc.processing.CompositeProcessor">
+<em class="property">class </em><code class="sig-prename descclassname">radarqc.processing.</code><code class="sig-name descname">CompositeProcessor</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">processors</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.processing.CompositeProcessor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#radarqc.processing.SignalProcessor" title="radarqc.processing.SignalProcessor"><code class="xref py py-class docutils literal notranslate"><span class="pre">radarqc.processing.SignalProcessor</span></code></a></p>
+<p>Represents a  composition of multiple processors into a single
+processor, allowing for creation of custom processing pipelines</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="radarqc.processing.GainCalculator">
+<em class="property">class </em><code class="sig-prename descclassname">radarqc.processing.</code><code class="sig-name descname">GainCalculator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reference</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.processing.GainCalculator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#radarqc.processing.SignalProcessor" title="radarqc.processing.SignalProcessor"><code class="xref py py-class docutils literal notranslate"><span class="pre">radarqc.processing.SignalProcessor</span></code></a></p>
+<p>Convert the signal from raw Voltages into dB, given some
+reference gain as a baseline</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="radarqc.processing.Identity">
+<em class="property">class </em><code class="sig-prename descclassname">radarqc.processing.</code><code class="sig-name descname">Identity</code><a class="headerlink" href="#radarqc.processing.Identity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#radarqc.processing.SignalProcessor" title="radarqc.processing.SignalProcessor"><code class="xref py py-class docutils literal notranslate"><span class="pre">radarqc.processing.SignalProcessor</span></code></a></p>
+<p>Does nothing, returns the input signal without copying</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="radarqc.processing.Normalize">
+<em class="property">class </em><code class="sig-prename descclassname">radarqc.processing.</code><code class="sig-name descname">Normalize</code><a class="headerlink" href="#radarqc.processing.Normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#radarqc.processing.SignalProcessor" title="radarqc.processing.SignalProcessor"><code class="xref py py-class docutils literal notranslate"><span class="pre">radarqc.processing.SignalProcessor</span></code></a></p>
+<p>Affine scaling such that the minimum signal value is equal to 0, and the
+maximum value is equal to 1</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="radarqc.processing.Rectifier">
+<em class="property">class </em><code class="sig-prename descclassname">radarqc.processing.</code><code class="sig-name descname">Rectifier</code><a class="headerlink" href="#radarqc.processing.Rectifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#radarqc.processing.SignalProcessor" title="radarqc.processing.SignalProcessor"><code class="xref py py-class docutils literal notranslate"><span class="pre">radarqc.processing.SignalProcessor</span></code></a></p>
+<p>Zeros out all negative parts of a signal.  This can be useful
+for dealing with negative values in the signal, which are added to
+indicate outliers in the raw voltage data</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="radarqc.processing.SignalProcessor">
+<em class="property">class </em><code class="sig-prename descclassname">radarqc.processing.</code><code class="sig-name descname">SignalProcessor</code><a class="headerlink" href="#radarqc.processing.SignalProcessor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Base class for representing a signal processor, used to process
+HF radar spectra</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-radarqc.serialization">
+<span id="radarqc-serialization-module"></span><h2>radarqc.serialization module<a class="headerlink" href="#module-radarqc.serialization" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="radarqc.serialization.ByteOrder">
+<em class="property">class </em><code class="sig-prename descclassname">radarqc.serialization.</code><code class="sig-name descname">ByteOrder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.serialization.ByteOrder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt id="radarqc.serialization.ByteOrder.BIG_ENDIAN">
+<code class="sig-name descname">BIG_ENDIAN</code><em class="property"> = 1</em><a class="headerlink" href="#radarqc.serialization.ByteOrder.BIG_ENDIAN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="radarqc.serialization.ByteOrder.LITTLE_ENDIAN">
+<code class="sig-name descname">LITTLE_ENDIAN</code><em class="property"> = 2</em><a class="headerlink" href="#radarqc.serialization.ByteOrder.LITTLE_ENDIAN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="radarqc.serialization.ByteOrder.NATIVE">
+<code class="sig-name descname">NATIVE</code><em class="property"> = 4</em><a class="headerlink" href="#radarqc.serialization.ByteOrder.NATIVE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="radarqc.serialization.ByteOrder.NETWORK">
+<code class="sig-name descname">NETWORK</code><em class="property"> = 3</em><a class="headerlink" href="#radarqc.serialization.ByteOrder.NETWORK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="radarqc.serialization.Deserializer">
+<em class="property">class </em><code class="sig-prename descclassname">radarqc.serialization.</code><code class="sig-name descname">Deserializer</code><span class="sig-paren">(</span><em class="sig-param">buff</em>, <em class="sig-param">byteorder=&lt;ByteOrder.NATIVE: 4&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.serialization.Deserializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="radarqc.serialization.Deserializer.reset">
+<code class="sig-name descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.serialization.Deserializer.reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="radarqc.serialization.Deserializer.unpack_bool">
+<code class="sig-name descname">unpack_bool</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.serialization.Deserializer.unpack_bool" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="radarqc.serialization.Deserializer.unpack_bytes">
+<code class="sig-name descname">unpack_bytes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.serialization.Deserializer.unpack_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="radarqc.serialization.Deserializer.unpack_char">
+<code class="sig-name descname">unpack_char</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.serialization.Deserializer.unpack_char" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="radarqc.serialization.Deserializer.unpack_double">
+<code class="sig-name descname">unpack_double</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.serialization.Deserializer.unpack_double" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="radarqc.serialization.Deserializer.unpack_float">
+<code class="sig-name descname">unpack_float</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.serialization.Deserializer.unpack_float" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="radarqc.serialization.Deserializer.unpack_int16">
+<code class="sig-name descname">unpack_int16</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.serialization.Deserializer.unpack_int16" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="radarqc.serialization.Deserializer.unpack_int32">
+<code class="sig-name descname">unpack_int32</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.serialization.Deserializer.unpack_int32" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="radarqc.serialization.Deserializer.unpack_int64">
+<code class="sig-name descname">unpack_int64</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.serialization.Deserializer.unpack_int64" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="radarqc.serialization.Deserializer.unpack_int8">
+<code class="sig-name descname">unpack_int8</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.serialization.Deserializer.unpack_int8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="radarqc.serialization.Deserializer.unpack_string">
+<code class="sig-name descname">unpack_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.serialization.Deserializer.unpack_string" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="radarqc.serialization.Deserializer.unpack_uint16">
+<code class="sig-name descname">unpack_uint16</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.serialization.Deserializer.unpack_uint16" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="radarqc.serialization.Deserializer.unpack_uint32">
+<code class="sig-name descname">unpack_uint32</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.serialization.Deserializer.unpack_uint32" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="radarqc.serialization.Deserializer.unpack_uint64">
+<code class="sig-name descname">unpack_uint64</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.serialization.Deserializer.unpack_uint64" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="radarqc.serialization.Deserializer.unpack_uint8">
+<code class="sig-name descname">unpack_uint8</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#radarqc.serialization.Deserializer.unpack_uint8" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-radarqc">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-radarqc" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="modules.html" class="btn btn-neutral float-right" title="radarqc" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to radarqc’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, John Stanco.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
