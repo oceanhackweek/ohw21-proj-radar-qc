@@ -36,6 +36,7 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.napoleon",
     "sphinx_autodoc_typehints",
+    "myst_parser",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -61,3 +62,10 @@ html_static_path = []
 
 # Show type hints as documentation
 autodoc_typehints = "description"
+
+# Allows markdown support
+source_suffix = {
+    ".rst": "restructuredtext",
+    ".txt": "markdown",
+    ".md": "markdown",
+}
