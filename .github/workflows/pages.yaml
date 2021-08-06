@@ -1,0 +1,8 @@
+name: Sphinx Documentation Generation for Github Pages
+on: [push]
+jobs:
+  Build-Sphinx-Docs:
+    runs-on: ubuntu-latest
+    steps:
+      - run: pip3 install -r requirements.txt
+      - run: cd docs && make html
