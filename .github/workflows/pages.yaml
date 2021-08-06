@@ -1,5 +1,7 @@
 name: Sphinx Documentation Generation for Github Pages
-on: [push]
+on: push
+  branches:
+    - main
 jobs:
   Build-Sphinx-Docs:
     runs-on: ubuntu-latest
@@ -18,3 +20,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./sphinx/build/html
+      
