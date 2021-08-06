@@ -13,7 +13,7 @@ from typing import BinaryIO, List, Tuple
 class CSFileHeader:
     """Stores all header information from Cross-Spectrum files"""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.version = None
         self.timestamp = None
         self.cskind = None
@@ -216,15 +216,15 @@ class _CSFileLoader:
 
         header.version = unpacker.unpack_int16()
         header.timestamp = self._parse_timestamp(unpacker.unpack_uint32())
-        unpacker.unpack_int32()
+        unpacker.unpack_int32()  # v1_extent
         # end v1
 
         header.cskind = unpacker.unpack_int16()
-        unpacker.unpack_int32()
+        unpacker.unpack_int32()  # v2_extent
         # end v2
 
         header.site_code = unpacker.unpack_string(4)
-        unpacker.unpack_int32()
+        unpacker.unpack_int32()  # v3_extent
         # end v3
 
         header.cover_minutes = unpacker.unpack_int32()
@@ -238,7 +238,7 @@ class _CSFileLoader:
         header.num_range_cells = unpacker.unpack_int32()
         header.first_range_cell = unpacker.unpack_int32()
         header.range_cell_dist_km = unpacker.unpack_float()
-        unpacker.unpack_int32()
+        unpacker.unpack_int32()  # v4_extent
         # end v4
 
         header.output_interval = unpacker.unpack_int32()
@@ -247,7 +247,7 @@ class _CSFileLoader:
         header.num_active_channels = unpacker.unpack_int32()
         header.num_spectra_channels = unpacker.unpack_int32()
         header.active_channels = unpacker.unpack_uint32()
-        unpacker.unpack_int32()
+        unpacker.unpack_int32()  # v5_extent
         # end v5
 
         cs6_header_size = unpacker.unpack_uint32()
