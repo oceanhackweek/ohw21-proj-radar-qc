@@ -24,7 +24,7 @@ class Deserializer:
         self._offset = 0
         self._byteorder = self._BYTE_ORDER_CHAR[byteorder]
 
-    def reset(self):
+    def reset(self) -> None:
         self._offset = 0
 
     def unpack_char(self, n=1) -> bytes:
