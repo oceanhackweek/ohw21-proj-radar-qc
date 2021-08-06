@@ -1,9 +1,10 @@
 name: Sphinx Documentation Generation for Github Pages
-on: push
-  branches:
+on:
+  push:
+    branches:
     - main
 jobs:
-  Build-Sphinx-Docs:
+  build-sphinx-docs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
