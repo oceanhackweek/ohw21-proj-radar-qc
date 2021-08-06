@@ -1,0 +1,6 @@
+# Sphinx generated files
+_build/
+source/*.rst
+
+# Enable custom index.rst
+!index.rst

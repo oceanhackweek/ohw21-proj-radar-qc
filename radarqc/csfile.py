@@ -278,12 +278,7 @@ class _CSFileLoader:
 
 
 class CSFile:
-    """Representation of Cross-Spectrum file for storing CODAR HF radar.  For
-    information about specific fields consult:
-
-        http://support.codar.com/Technicians_Information_Page_for_SeaSondes/
-        Manuals_Documentation_Release_8/File_Formats/File_Cross_Spectra_V6.pdf
-    """
+    """Representation of Cross-Spectrum file for storing CODAR HF radar data."""
 
     def __init__(self, header: CSFileHeader, spectrum: Spectrum) -> None:
         self._header = header
@@ -311,15 +306,17 @@ class CSFile:
 
     @property
     def cross12(self) -> np.ndarray:
-        """Cross-spectrum from antenna 1 & 2.  This is defined as"""
+        """Cross-spectrum from antenna 1 & 2."""
         return self._spectrum.cross12
 
     @property
     def cross13(self) -> np.ndarray:
+        """Cross-spectrum from antenna 1 & 3."""
         return self._spectrum.cross13
 
     @property
     def cross23(self) -> np.ndarray:
+        """Cross-spectrum from antenna 2 & 3."""
         return self._spectrum.cross23
 
 
