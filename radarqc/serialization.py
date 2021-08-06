@@ -7,16 +7,16 @@ from typing import Any
 class ByteOrder(enum.Enum):
     BIG_ENDIAN = 1
     LITTLE_ENDIAN = 2
-    NETWORK = 3
-    NATIVE = 4
+    NATIVE = 3
+    NETWORK = 4
 
 
 class Deserializer:
     _BYTE_ORDER_CHAR = {
         ByteOrder.BIG_ENDIAN: ">",
         ByteOrder.LITTLE_ENDIAN: "<",
-        ByteOrder.NETWORK: "!",
         ByteOrder.NATIVE: "=",
+        ByteOrder.NETWORK: "!",
     }
 
     def __init__(self, buff: bytes, byteorder: ByteOrder) -> None:
