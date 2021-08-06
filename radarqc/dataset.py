@@ -24,8 +24,8 @@ class DataSet:
         self._headers = headers
 
     @property
-    def spectra(self) -> Iterable[np.ndarray]:
-        """Image size is (N, num_range, num_doppler), where N is the total
+    def spectra(self) -> np.ndarray:
+        """Array size is (N, num_range, num_doppler), where N is the total
         number of Cross-Spectrum files found in the target directory"""
         return self._spectra
 

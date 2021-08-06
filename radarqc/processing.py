@@ -18,7 +18,7 @@ class GainCalculator(SignalProcessor):
     """Convert the signal from raw Voltages into dB, given some
     reference gain as a baseline"""
 
-    def __init__(self, reference: float):
+    def __init__(self, reference: float) -> None:
         self._reference = reference
 
     def _process(self, signal: np.ndarray) -> np.ndarray:

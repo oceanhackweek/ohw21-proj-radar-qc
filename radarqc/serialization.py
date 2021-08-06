@@ -1,6 +1,8 @@
 import struct
 import enum
 
+from typing import Any
+
 
 class ByteOrder(enum.Enum):
     BIG_ENDIAN = 1
@@ -17,7 +19,7 @@ class Deserializer:
         ByteOrder.NATIVE: "=",
     }
 
-    def __init__(self, buff: bytes, byteorder: ByteOrder = ByteOrder.NATIVE):
+    def __init__(self, buff: bytes, byteorder: ByteOrder) -> None:
         self._buff = buff
         self._offset = 0
         self._byteorder = self._BYTE_ORDER_CHAR[byteorder]
@@ -75,7 +77,7 @@ class Deserializer:
     def unpack_double(self, n=1) -> float:
         return self._unpack("d", size=8, n=n)
 
-    def _unpack(self, fmt: str, size: int, n: int):
+    def _unpack(self, fmt: str, size: int, n: int) -> Any:
         full_fmt = self._build_format(n * fmt)
         data = struct.unpack_from(full_fmt, self._buff, self._offset)
         self._offset += size * n
@@ -84,5 +86,5 @@ class Deserializer:
         else:
             return data
 
-    def _build_format(self, fmt):
+    def _build_format(self, fmt) -> str:
         return "{}{}".format(self._byteorder, fmt)
