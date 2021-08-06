@@ -4,5 +4,6 @@ jobs:
   Build-Sphinx-Docs:
     runs-on: ubuntu-latest
     steps:
+      - run: ls
       - run: pip3 install -r requirements.txt
       - run: cd docs && make html
