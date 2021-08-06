@@ -10,6 +10,7 @@ Welcome to radarqc's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   readme
    radarqc
    modules
 
