@@ -6,8 +6,9 @@ See file specification [here](http://support.codar.com/Technicians_Information_P
 ## Python Package
 
 This repository provides a python package with utilities for:
-  - Loading Cross-Spectrum files as Python objects containing headers and antenna spectra
-  - Preprocessing antenna spectra to calculate gain and deal with outliers
+  - Loading Cross-Spectrum files as Python objects containing headers and antenna spectra.
+  - Serializing Python object representation as Cross-Spectrum files.
+  - Preprocessing antenna spectra to calculate gain and deal with outliers.
   - Filter spectra to reduce the effects of background noise on wave velocity calculation.
 
 ## Installation
@@ -19,22 +20,27 @@ pip3 install radarqc
 ## Example Usage
 The radar used to generate cross-spectrum data can sometimes detect outliers.  This is indicated by 
 negative signal values in the data.  This example loads a file using the `Abs` method to ignore the outliers,
-then computes the gain relative to some reference gain.
+computes the relative gain, then writes the result back into a file.
 
 ```python3
 from radarqc import csfile
 from radarqc.processing import Abs, CompositeProcessor, GainCalculator
 
 def example():
-  reference_dbm = 34.2
-  
-  preprocess = CompositeProcessor(
-    Abs(), GainCalculator(reference=reference_dbm)
-  )
-  
-  path = "example.cs"
-  with open(path, "rb") as f:
-    cs = csfile.load(f, preprocess)
+    reference_dbm = 34.2
+    path = "example.cs"
+    preprocess = CompositeProcessor(
+        Abs(), GainCalculator(reference=reference_dbm)
+    )
+    
+    # Read binary file into 'CSFile' object.
+    # Spectrum data will be processed to compute gain.
+    with open(path, "rb") as f:
+        cs = csfile.load(f, preprocess)
+    
+    # Write processed file back into original format on disk.
+    with open(path, "wb") as f:
+        csfile.dump(cs, f)
 ```
 
 The loaded `CSFile` object can be used to access file metadata via the `header` attribute,

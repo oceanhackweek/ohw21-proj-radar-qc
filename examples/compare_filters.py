@@ -74,7 +74,7 @@ def main():
     dataset = DataSet(paths, preprocess)
     num_components = 0.8
 
-    noise = NoiseFilter(threshold=0.188, window_std=0.005)
+    noise = NoiseFilter(threshold=0.18, window_std=0.02)
     pca = PCAFilter(num_components=num_components)
     prefit = PreFitPCAFilter(dataset.spectra, num_components)
 
