@@ -33,11 +33,11 @@ def example():
     )
     
     # Read binary file into 'CSFile' object.
-    # Spectrum data will be processed
+    # Spectrum data will be processed to compute gain.
     with open(path, "rb") as f:
         cs = csfile.load(f, preprocess)
     
-    # Write processed file back into binary format
+    # Write processed file back into original format on disk.
     with open(path, "wb") as f:
         csfile.dump(cs, f)
 ```
