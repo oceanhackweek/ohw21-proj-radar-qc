@@ -6,8 +6,9 @@ See file specification [here](http://support.codar.com/Technicians_Information_P
 ## Python Package
 
 This repository provides a python package with utilities for:
-  - Loading Cross-Spectrum files as Python objects containing headers and antenna spectra
-  - Preprocessing antenna spectra to calculate gain and deal with outliers
+  - Loading Cross-Spectrum files as Python objects containing headers and antenna spectra.
+  - Serializing Python object representation as Cross-Spectrum files.
+  - Preprocessing antenna spectra to calculate gain and deal with outliers.
   - Filter spectra to reduce the effects of background noise on wave velocity calculation.
 
 ## Installation
