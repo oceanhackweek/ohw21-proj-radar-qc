@@ -165,28 +165,24 @@ class CSFileWriter:
             writer.write_bytes(block)
         # end v6
 
-    def _write_real_spectrum(
-        self, spectrum: np.ndarray, writer: BinaryWriter
-    ) -> None:
+    def _write_real_row(self, row: np.ndarray, writer: BinaryWriter) -> None:
         dtype = np.dtype("float32").newbyteorder(">")
-        buff = spectrum.astype(dtype=dtype)
+        buff = row.astype(dtype=dtype)
         writer.write_bytes(buff)
 
-    def _write_complex_spectrum(
-        self, spectrum: np.ndarray, writer: BinaryWriter
-    ) -> None:
-        floats = spectrum.view(np.float32).tolist()
+    def _write_complex_row(self, row: np.ndarray, writer: BinaryWriter) -> None:
+        floats = row.view(np.float32).tolist()
         writer.write_float(floats)
 
     def _write_spectrum_data(
         self, header: CSFileHeader, spectrum: Spectrum, writer: BinaryWriter
     ) -> None:
         for i in range(header.num_range_cells):
-            self._write_real_spectrum(spectrum.antenna1[i], writer)
-            self._write_real_spectrum(spectrum.antenna2[i], writer)
-            self._write_real_spectrum(spectrum.antenna3[i], writer)
-            self._write_complex_spectrum(spectrum.cross12[i], writer)
-            self._write_complex_spectrum(spectrum.cross13[i], writer)
-            self._write_complex_spectrum(spectrum.cross23[i], writer)
+            self._write_real_row(spectrum.antenna1[i], writer)
+            self._write_real_row(spectrum.antenna2[i], writer)
+            self._write_real_row(spectrum.antenna3[i], writer)
+            self._write_complex_row(spectrum.cross12[i], writer)
+            self._write_complex_row(spectrum.cross13[i], writer)
+            self._write_complex_row(spectrum.cross23[i], writer)
             if header.cskind >= 2:
-                self._write_real_spectrum(spectrum.quality[i], writer)
+                self._write_real_row(spectrum.quality[i], writer)
