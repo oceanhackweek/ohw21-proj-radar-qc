@@ -26,15 +26,20 @@ from radarqc import csfile
 from radarqc.processing import Abs, CompositeProcessor, GainCalculator
 
 def example():
-  reference_dbm = 34.2
-  
-  preprocess = CompositeProcessor(
-    Abs(), GainCalculator(reference=reference_dbm)
-  )
-  
-  path = "example.cs"
-  with open(path, "rb") as f:
-    cs = csfile.load(f, preprocess)
+    reference_dbm = 34.2
+    path = "example.cs"
+    preprocess = CompositeProcessor(
+        Abs(), GainCalculator(reference=reference_dbm)
+    )
+    
+    # Read binary file into 'CSFile' object.
+    # Spectrum data will be processed
+    with open(path, "rb") as f:
+        cs = csfile.load(f, preprocess)
+    
+    # Write processed file back into binary format
+    with open(path, "wb") as f:
+        csfile.dump(cs, f)
 ```
 
 The loaded `CSFile` object can be used to access file metadata via the `header` attribute,
