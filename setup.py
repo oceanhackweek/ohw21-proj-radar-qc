@@ -8,6 +8,7 @@ setup(
     name="radarqc",
     version="0.1.0",
     author="John Stanco",
+    description="Python package for loading and processing HF radar spectra in Cross-Spectrum file format",
     long_description=long_description,
     packages=find_packages(),
 )
