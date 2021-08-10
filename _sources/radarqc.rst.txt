@@ -28,6 +28,14 @@ radarqc.filtering module
    :undoc-members:
    :show-inheritance:
 
+radarqc.header module
+---------------------
+
+.. automodule:: radarqc.header
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 radarqc.processing module
 -------------------------
 
@@ -36,10 +44,34 @@ radarqc.processing module
    :undoc-members:
    :show-inheritance:
 
+radarqc.reader module
+---------------------
+
+.. automodule:: radarqc.reader
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 radarqc.serialization module
 ----------------------------
 
 .. automodule:: radarqc.serialization
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+radarqc.spectrum module
+-----------------------
+
+.. automodule:: radarqc.spectrum
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+radarqc.writer module
+---------------------
+
+.. automodule:: radarqc.writer
    :members:
    :undoc-members:
    :show-inheritance:

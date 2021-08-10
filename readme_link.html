@@ -171,8 +171,9 @@ See file specification <a class="reference external" href="http://support.codar.
 <h2>Python Package<a class="headerlink" href="#python-package" title="Permalink to this headline">¶</a></h2>
 <p>This repository provides a python package with utilities for:</p>
 <ul class="simple">
-<li><p>Loading Cross-Spectrum files as Python objects containing headers and antenna spectra</p></li>
-<li><p>Preprocessing antenna spectra to calculate gain and deal with outliers</p></li>
+<li><p>Loading Cross-Spectrum files as Python objects containing headers and antenna spectra.</p></li>
+<li><p>Serializing Python object representation as Cross-Spectrum files.</p></li>
+<li><p>Preprocessing antenna spectra to calculate gain and deal with outliers.</p></li>
 <li><p>Filter spectra to reduce the effects of background noise on wave velocity calculation.</p></li>
 </ul>
 </section>
@@ -187,20 +188,25 @@ See file specification <a class="reference external" href="http://support.codar.
 <h2>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h2>
 <p>The radar used to generate cross-spectrum data can sometimes detect outliers.  This is indicated by
 negative signal values in the data.  This example loads a file using the <code class="docutils literal notranslate"><span class="pre">Abs</span></code> method to ignore the outliers,
-then computes the gain relative to some reference gain.</p>
+computes the relative gain, then writes the result back into a file.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">radarqc</span> <span class="k">import</span> <span class="n">csfile</span>
 <span class="kn">from</span> <span class="nn">radarqc.processing</span> <span class="k">import</span> <span class="n">Abs</span><span class="p">,</span> <span class="n">CompositeProcessor</span><span class="p">,</span> <span class="n">GainCalculator</span>
 
 <span class="k">def</span> <span class="nf">example</span><span class="p">():</span>
-  <span class="n">reference_dbm</span> <span class="o">=</span> <span class="mf">34.2</span>
-  
-  <span class="n">preprocess</span> <span class="o">=</span> <span class="n">CompositeProcessor</span><span class="p">(</span>
-    <span class="n">Abs</span><span class="p">(),</span> <span class="n">GainCalculator</span><span class="p">(</span><span class="n">reference</span><span class="o">=</span><span class="n">reference_dbm</span><span class="p">)</span>
-  <span class="p">)</span>
-  
-  <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;example.cs&quot;</span>
-  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">cs</span> <span class="o">=</span> <span class="n">csfile</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">)</span>
+    <span class="n">reference_dbm</span> <span class="o">=</span> <span class="mf">34.2</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;example.cs&quot;</span>
+    <span class="n">preprocess</span> <span class="o">=</span> <span class="n">CompositeProcessor</span><span class="p">(</span>
+        <span class="n">Abs</span><span class="p">(),</span> <span class="n">GainCalculator</span><span class="p">(</span><span class="n">reference</span><span class="o">=</span><span class="n">reference_dbm</span><span class="p">)</span>
+    <span class="p">)</span>
+    
+    <span class="c1"># Read binary file into &#39;CSFile&#39; object.</span>
+    <span class="c1"># Spectrum data will be processed to compute gain.</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">cs</span> <span class="o">=</span> <span class="n">csfile</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">)</span>
+    
+    <span class="c1"># Write processed file back into original format on disk.</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">csfile</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">cs</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The loaded <code class="docutils literal notranslate"><span class="pre">CSFile</span></code> object can be used to access file metadata via the <code class="docutils literal notranslate"><span class="pre">header</span></code> attribute,

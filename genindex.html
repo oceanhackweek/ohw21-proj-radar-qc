@@ -170,7 +170,7 @@
  | <a href="#P"><strong>P</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
- | <a href="#U"><strong>U</strong></a>
+ | <a href="#W"><strong>W</strong></a>
  
 </div>
 <h2 id="A">A</h2>
@@ -194,8 +194,12 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="radarqc.html#radarqc.serialization.ByteOrder.BIG_ENDIAN">BIG_ENDIAN (radarqc.serialization.ByteOrder attribute)</a>
 </li>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryReader">BinaryReader (class in radarqc.serialization)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryWriter">BinaryWriter (class in radarqc.serialization)</a>
+</li>
       <li><a href="radarqc.html#radarqc.serialization.ByteOrder">ByteOrder (class in radarqc.serialization)</a>
 </li>
   </ul></td>
@@ -210,13 +214,17 @@
 </li>
       <li><a href="radarqc.html#radarqc.csfile.CSFile.cross13">cross13() (radarqc.csfile.CSFile property)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="radarqc.html#radarqc.csfile.CSFile.cross23">cross23() (radarqc.csfile.CSFile property)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="radarqc.html#radarqc.csfile.CSFile">CSFile (class in radarqc.csfile)</a>
 </li>
-      <li><a href="radarqc.html#radarqc.csfile.CSFileHeader">CSFileHeader (class in radarqc.csfile)</a>
+      <li><a href="radarqc.html#radarqc.header.CSFileHeader">CSFileHeader (class in radarqc.header)</a>
+</li>
+      <li><a href="radarqc.html#radarqc.reader.CSFileReader">CSFileReader (class in radarqc.reader)</a>
+</li>
+      <li><a href="radarqc.html#radarqc.writer.CSFileWriter">CSFileWriter (class in radarqc.writer)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -228,8 +236,12 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="radarqc.html#radarqc.serialization.Deserializer">Deserializer (class in radarqc.serialization)</a>
+      <li><a href="radarqc.html#radarqc.csfile.dump">dump() (in module radarqc.csfile)</a>
+
+      <ul>
+        <li><a href="radarqc.html#radarqc.writer.CSFileWriter.dump">(radarqc.writer.CSFileWriter method)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -269,7 +281,11 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="radarqc.html#radarqc.csfile.load">load() (in module radarqc.csfile)</a>
+
+      <ul>
+        <li><a href="radarqc.html#radarqc.reader.CSFileReader.load">(radarqc.reader.CSFileReader method)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -288,9 +304,17 @@
 </li>
         <li><a href="radarqc.html#module-radarqc.filtering">radarqc.filtering</a>
 </li>
+        <li><a href="radarqc.html#module-radarqc.header">radarqc.header</a>
+</li>
         <li><a href="radarqc.html#module-radarqc.processing">radarqc.processing</a>
 </li>
+        <li><a href="radarqc.html#module-radarqc.reader">radarqc.reader</a>
+</li>
         <li><a href="radarqc.html#module-radarqc.serialization">radarqc.serialization</a>
+</li>
+        <li><a href="radarqc.html#module-radarqc.spectrum">radarqc.spectrum</a>
+</li>
+        <li><a href="radarqc.html#module-radarqc.writer">radarqc.writer</a>
 </li>
       </ul></li>
   </ul></td>
@@ -355,13 +379,25 @@
         <li><a href="radarqc.html#module-radarqc.filtering">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    radarqc.header
+
+      <ul>
+        <li><a href="radarqc.html#module-radarqc.header">module</a>
+</li>
+      </ul></li>
       <li>
     radarqc.processing
 
       <ul>
         <li><a href="radarqc.html#module-radarqc.processing">module</a>
+</li>
+      </ul></li>
+      <li>
+    radarqc.reader
+
+      <ul>
+        <li><a href="radarqc.html#module-radarqc.reader">module</a>
 </li>
       </ul></li>
       <li>
@@ -371,9 +407,51 @@
         <li><a href="radarqc.html#module-radarqc.serialization">module</a>
 </li>
       </ul></li>
-      <li><a href="radarqc.html#radarqc.processing.Rectifier">Rectifier (class in radarqc.processing)</a>
+      <li>
+    radarqc.spectrum
+
+      <ul>
+        <li><a href="radarqc.html#module-radarqc.spectrum">module</a>
 </li>
-      <li><a href="radarqc.html#radarqc.serialization.Deserializer.reset">reset() (radarqc.serialization.Deserializer method)</a>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    radarqc.writer
+
+      <ul>
+        <li><a href="radarqc.html#module-radarqc.writer">module</a>
+</li>
+      </ul></li>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryReader.read_bool">read_bool() (radarqc.serialization.BinaryReader method)</a>
+</li>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryReader.read_bytes">read_bytes() (radarqc.serialization.BinaryReader method)</a>
+</li>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryReader.read_char">read_char() (radarqc.serialization.BinaryReader method)</a>
+</li>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryReader.read_double">read_double() (radarqc.serialization.BinaryReader method)</a>
+</li>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryReader.read_float">read_float() (radarqc.serialization.BinaryReader method)</a>
+</li>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryReader.read_int16">read_int16() (radarqc.serialization.BinaryReader method)</a>
+</li>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryReader.read_int32">read_int32() (radarqc.serialization.BinaryReader method)</a>
+</li>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryReader.read_int64">read_int64() (radarqc.serialization.BinaryReader method)</a>
+</li>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryReader.read_int8">read_int8() (radarqc.serialization.BinaryReader method)</a>
+</li>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryReader.read_string">read_string() (radarqc.serialization.BinaryReader method)</a>
+</li>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryReader.read_uint16">read_uint16() (radarqc.serialization.BinaryReader method)</a>
+</li>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryReader.read_uint32">read_uint32() (radarqc.serialization.BinaryReader method)</a>
+</li>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryReader.read_uint64">read_uint64() (radarqc.serialization.BinaryReader method)</a>
+</li>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryReader.read_uint8">read_uint8() (radarqc.serialization.BinaryReader method)</a>
+</li>
+      <li><a href="radarqc.html#radarqc.processing.Rectifier">Rectifier (class in radarqc.processing)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -387,45 +465,47 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="radarqc.html#radarqc.csfile.Spectrum">Spectrum (class in radarqc.csfile)</a>
+      <li><a href="radarqc.html#radarqc.spectrum.Spectrum">Spectrum (class in radarqc.spectrum)</a>
+</li>
+      <li><a href="radarqc.html#radarqc.csfile.CSFile.spectrum">spectrum() (radarqc.csfile.CSFile property)</a>
 </li>
       <li><a href="radarqc.html#radarqc.filtering.SpectrumFilter">SpectrumFilter (class in radarqc.filtering)</a>
 </li>
   </ul></td>
 </tr></table>
 
-<h2 id="U">U</h2>
+<h2 id="W">W</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="radarqc.html#radarqc.serialization.Deserializer.unpack_bool">unpack_bool() (radarqc.serialization.Deserializer method)</a>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryWriter.write_bool">write_bool() (radarqc.serialization.BinaryWriter method)</a>
 </li>
-      <li><a href="radarqc.html#radarqc.serialization.Deserializer.unpack_bytes">unpack_bytes() (radarqc.serialization.Deserializer method)</a>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryWriter.write_bytes">write_bytes() (radarqc.serialization.BinaryWriter method)</a>
 </li>
-      <li><a href="radarqc.html#radarqc.serialization.Deserializer.unpack_char">unpack_char() (radarqc.serialization.Deserializer method)</a>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryWriter.write_char">write_char() (radarqc.serialization.BinaryWriter method)</a>
 </li>
-      <li><a href="radarqc.html#radarqc.serialization.Deserializer.unpack_double">unpack_double() (radarqc.serialization.Deserializer method)</a>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryWriter.write_double">write_double() (radarqc.serialization.BinaryWriter method)</a>
 </li>
-      <li><a href="radarqc.html#radarqc.serialization.Deserializer.unpack_float">unpack_float() (radarqc.serialization.Deserializer method)</a>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryWriter.write_float">write_float() (radarqc.serialization.BinaryWriter method)</a>
 </li>
-      <li><a href="radarqc.html#radarqc.serialization.Deserializer.unpack_int16">unpack_int16() (radarqc.serialization.Deserializer method)</a>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryWriter.write_int16">write_int16() (radarqc.serialization.BinaryWriter method)</a>
 </li>
-      <li><a href="radarqc.html#radarqc.serialization.Deserializer.unpack_int32">unpack_int32() (radarqc.serialization.Deserializer method)</a>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryWriter.write_int32">write_int32() (radarqc.serialization.BinaryWriter method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="radarqc.html#radarqc.serialization.Deserializer.unpack_int64">unpack_int64() (radarqc.serialization.Deserializer method)</a>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryWriter.write_int64">write_int64() (radarqc.serialization.BinaryWriter method)</a>
 </li>
-      <li><a href="radarqc.html#radarqc.serialization.Deserializer.unpack_int8">unpack_int8() (radarqc.serialization.Deserializer method)</a>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryWriter.write_int8">write_int8() (radarqc.serialization.BinaryWriter method)</a>
 </li>
-      <li><a href="radarqc.html#radarqc.serialization.Deserializer.unpack_string">unpack_string() (radarqc.serialization.Deserializer method)</a>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryWriter.write_string">write_string() (radarqc.serialization.BinaryWriter method)</a>
 </li>
-      <li><a href="radarqc.html#radarqc.serialization.Deserializer.unpack_uint16">unpack_uint16() (radarqc.serialization.Deserializer method)</a>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryWriter.write_uint16">write_uint16() (radarqc.serialization.BinaryWriter method)</a>
 </li>
-      <li><a href="radarqc.html#radarqc.serialization.Deserializer.unpack_uint32">unpack_uint32() (radarqc.serialization.Deserializer method)</a>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryWriter.write_uint32">write_uint32() (radarqc.serialization.BinaryWriter method)</a>
 </li>
-      <li><a href="radarqc.html#radarqc.serialization.Deserializer.unpack_uint64">unpack_uint64() (radarqc.serialization.Deserializer method)</a>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryWriter.write_uint64">write_uint64() (radarqc.serialization.BinaryWriter method)</a>
 </li>
-      <li><a href="radarqc.html#radarqc.serialization.Deserializer.unpack_uint8">unpack_uint8() (radarqc.serialization.Deserializer method)</a>
+      <li><a href="radarqc.html#radarqc.serialization.BinaryWriter.write_uint8">write_uint8() (radarqc.serialization.BinaryWriter method)</a>
 </li>
   </ul></td>
 </tr></table>
