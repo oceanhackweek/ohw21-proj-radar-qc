@@ -1,11 +1,12 @@
 import abc
 import io
 import datetime
-import numpy as np
 import struct
 
 from collections import defaultdict
 from typing import Any, BinaryIO
+
+import numpy as np
 
 from radarqc.header import CSFileHeader
 from radarqc.serialization import BinaryWriter, ByteOrder
@@ -49,13 +50,6 @@ class CSFileWriter:
         version = header.version
         pack = writers[version]
         pack(header, spectrum, f)
-
-    def _write_version(self, f: BinaryIO) -> int:
-        int_size_bytes = 4
-        buff = f.write(int_size_bytes)
-        f.seek(-int_size_bytes, io.SEEK_CUR)
-        (version,) = struct.pack_from(">h", buff)
-        return version
 
     def _get_block_parser(self, block_key: str) -> _CSBlockWriter:
         return self._BLOCK_WRITERS[block_key]

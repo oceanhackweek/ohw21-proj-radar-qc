@@ -56,7 +56,7 @@ class CompositeProcessor(SignalProcessor):
     processor, allowing for creation of custom processing pipelines"""
 
     def __init__(self, *processors) -> None:
-        self._processors = [p for p in processors]
+        self._processors = processors
 
     def _process(self, signal: np.ndarray) -> np.ndarray:
         for process in self._processors:

@@ -1,9 +1,10 @@
+from typing import Iterable
+
 import numpy as np
 
 from radarqc import csfile
 from radarqc.csfile import CSFile, CSFileHeader
 from radarqc.processing import SignalProcessor
-from typing import Iterable
 
 
 class DataSet:

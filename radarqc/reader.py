@@ -1,12 +1,12 @@
 import abc
 import io
 import datetime
-import numpy as np
-import pprint
 import struct
 
 from collections import defaultdict
 from typing import BinaryIO, Tuple
+
+import numpy as np
 
 from radarqc.header import CSFileHeader
 from radarqc.processing import SignalProcessor

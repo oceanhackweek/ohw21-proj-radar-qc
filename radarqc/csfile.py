@@ -1,6 +1,6 @@
-import numpy as np
-
 from typing import BinaryIO
+
+import numpy as np
 
 from radarqc.header import CSFileHeader
 from radarqc.processing import Identity, SignalProcessor

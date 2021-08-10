@@ -35,15 +35,13 @@ class BinaryReader:
         raw = self.read_char(n=n)
         if n == 1:
             return raw.decode()
-        else:
-            return "".join(r.decode() for r in raw)
+        return "".join(r.decode() for r in raw)
 
     def read_bytes(self, n: int = 1) -> bytes:
         raw = self.read_char(n=n)
         if n == 1:
             return raw
-        else:
-            return b"".join(raw)
+        return b"".join(raw)
 
     def read_bool(self, n: int = 1) -> Union[bool, Iterable[bool]]:
         return self._read("?", size=1, n=n)
@@ -91,8 +89,7 @@ class BinaryReader:
         data = struct.unpack(full_fmt, buff)
         if n == 1:
             return data[0]
-        else:
-            return data
+        return data
 
 
 class BinaryWriter:
@@ -153,6 +150,5 @@ class BinaryWriter:
         if hasattr(data, "__len__"):
             full_fmt = self._formatter.create_format(fmt, len(data))
             return struct.pack(full_fmt, *data)
-        else:
-            full_fmt = self._formatter.create_format(fmt, 1)
-            return struct.pack(full_fmt, data)
+        full_fmt = self._formatter.create_format(fmt, 1)
+        return struct.pack(full_fmt, data)
