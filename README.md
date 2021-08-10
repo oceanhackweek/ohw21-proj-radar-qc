@@ -19,7 +19,7 @@ pip3 install radarqc
 ## Example Usage
 The radar used to generate cross-spectrum data can sometimes detect outliers.  This is indicated by 
 negative signal values in the data.  This example loads a file using the `Abs` method to ignore the outliers,
-then computes the gain relative to some reference gain.
+computes the relative gain, then writes the result back into a file.
 
 ```python3
 from radarqc import csfile
